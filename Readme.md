@@ -1,6 +1,12 @@
 # Cucumber Selenium tutorial
 How to test a website using Cucumber and Selenium
 
+## Dependencies used
+- [**selenium-jutils**](https://github.com/fslev/selenium-jutils)
+- [**cucumber-jutils**](https://github.com/fslev/cucumber-utils)
+- Selenium and Cucumber for java
+- Lombok
+
 ## How to run
 Start Selenium Grid via _docker-compose_ from _src/test/resources/selenium_:  
 ```
@@ -96,9 +102,3 @@ Feature: Grocery List feature
 ## Cucumber Test Report
 
 <img src="report.png"/>
-
-## Dependencies used
-- [**selenium-jutils**](https://github.com/fslev/selenium-jutils)
-- [**cucumber-jutils**](https://github.com/fslev/cucumber-utils)
-- Selenium and Cucumber for java 
-- Lombok
