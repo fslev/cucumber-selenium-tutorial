@@ -26,6 +26,7 @@
         <guice.version>5.0.1</guice.version>
         <selenium.java.version>4.0.0-beta-4</selenium.java.version>
         <selenium.jutils.version>1.0</selenium.jutils.version>
+        <lombok.version>1.18.20</lombok.version>
         <surefire.version>2.22.2</surefire.version>
         <tags>@all</tags>
         <cleanup>true</cleanup>
@@ -54,6 +55,11 @@
             <groupId>com.google.inject</groupId>
             <artifactId>guice</artifactId>
             <version>${guice.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
         </dependency>
         <!--Selenium dependencies-->
         <dependency>
