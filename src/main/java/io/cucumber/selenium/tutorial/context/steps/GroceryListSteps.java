@@ -51,7 +51,7 @@ public class GroceryListSteps extends BaseScenario {
 
     @When("Check grocery list does not contain item with name={}")
     public void checkGroceryListItemDoesNotExist(String name) {
-//      groceryPage.getGroceryListContext().checkItemDoesNotExist(groceryPage.getDriver(), name);
+//        groceryPage.getGroceryListContext().checkItemDoesNotExist(name);
         assertFalse("Item still exists",
                 new Polling<Boolean>().duration(Duration.ofSeconds(8), 500L)
                         .supplier(() -> groceryPage.getGroceryListContext().getGroceryItemList().stream()

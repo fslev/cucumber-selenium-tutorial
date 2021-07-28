@@ -1,6 +1,5 @@
 package io.cucumber.selenium.tutorial.context.services;
 
-import io.cucumber.selenium.tutorial.context.hooks.ScenarioInit;
 import io.selenium.utils.WebContext;
 import lombok.Getter;
 import org.openqa.selenium.By;
@@ -31,11 +30,9 @@ public class GroceryListContext extends WebContext {
         groceryAddButton.click();
     }
 
-    public void checkItemDoesNotExist(WebDriver driver, String name) {
-        driver.manage().timeouts().implicitlyWait(Duration.ZERO);
-        new WebDriverWait(driver, Duration.ofSeconds(8)).until(
-                ExpectedConditions.invisibilityOfElementLocated(By.xpath("//ul//li//app-item/span[text()='" + name + "']")));
-        driver.manage().timeouts().implicitlyWait(ScenarioInit.IMPLICIT_WAIT);
+    public void checkItemDoesNotExist(String name) {
+        new WebDriverWait((WebDriver) getSearchContext(), Duration.ofSeconds(8)).until(
+                ExpectedConditions.invisibilityOfElementLocated(By.xpath(".//app-item/span[text()='" + name + "']")));
     }
 
     @Getter
@@ -45,6 +42,5 @@ public class GroceryListContext extends WebContext {
 
         @FindBy(xpath = ".//app-item/button[text()='Remove']")
         private WebElement removeButton;
-
     }
 }

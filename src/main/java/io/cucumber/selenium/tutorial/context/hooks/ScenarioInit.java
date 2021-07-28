@@ -12,18 +12,18 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.time.Duration;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+
+import static io.cucumber.selenium.tutorial.Config.IMPLICIT_WAIT;
 
 @ScenarioScoped
 public class ScenarioInit extends BaseScenario {
 
     public static final Set<WebDriver> WEB_DRIVERS = Collections.synchronizedSet(new HashSet<>());
     public static final ThreadLocal<WebDriver> WEB_DRIVER_THREAD_LOCAL = new ThreadLocal<>();
-    public static final Duration IMPLICIT_WAIT = Duration.ofSeconds(5);
 
     @Before(order = 0)
     public void liveSafety() {

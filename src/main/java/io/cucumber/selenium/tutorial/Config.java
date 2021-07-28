@@ -3,6 +3,7 @@ package io.cucumber.selenium.tutorial;
 import io.jtest.utils.common.ResourceUtils;
 
 import java.io.IOException;
+import java.time.Duration;
 import java.util.Properties;
 
 public class Config {
@@ -14,6 +15,8 @@ public class Config {
 
     public static String SELENIUM_HUB_ADDRESS = PROPERTIES.getProperty("selenium.hub.address");
     public static String GROCERY_WEBSITE_ADDRESS = PROPERTIES.getProperty("grocery.website.address");
+
+    public static final Duration IMPLICIT_WAIT = Duration.ofSeconds(5);
 
     public static boolean isLocalEnv() {
         return ENV.equals("local");
