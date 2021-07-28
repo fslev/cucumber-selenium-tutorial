@@ -93,6 +93,10 @@ Feature: Grocery List feature
     * Check grocery list contains item with name=#[itemName]
 ```
 
+## Cucumber Test Report
+
+<img src="report.png"/>
+
 ## Dependencies used
 - [**selenium-jutils**](https://github.com/fslev/selenium-jutils)
 - [**cucumber-jutils**](https://github.com/fslev/cucumber-utils)
