@@ -16,7 +16,7 @@ The test application is a Grocery web page:
 <img src="grocery_app.png"/>
 
 ## Page object models
-BasePage.java:  
+_BasePage.java_:  
 ```java
 public abstract class BasePage {
     
@@ -26,7 +26,7 @@ public abstract class BasePage {
                 Collections.singletonList(StaleElementReferenceException.class))), this);
     }
 ```
-GroceryPage.java
+_GroceryPage.java_:
 ```java
 @ScenarioScoped
 @Getter
@@ -35,7 +35,7 @@ public class GroceryPage extends BasePage {
     @FindBy(xpath = "//app-root//app-list")
     private GroceryListContext groceryListContext;
 ```
-GroceryListContext.java
+_GroceryListContext.java_:
 ```java
 public class GroceryListContext extends WebContext {
 
@@ -51,7 +51,7 @@ public class GroceryListContext extends WebContext {
 ```
 ## Cucumber step definitions
 
-GroceryListSteps.java
+_GroceryListSteps.java_:
 ```java
 @ScenarioScoped
 public class GroceryListSteps extends BaseScenario {
@@ -77,7 +77,7 @@ public class GroceryListSteps extends BaseScenario {
 
 ## Features
 
-Grocery.feature:  
+_Grocery.feature_:  
 ```gherkin
 @ui
 @local @prod
