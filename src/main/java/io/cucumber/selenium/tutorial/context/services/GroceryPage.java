@@ -19,5 +19,5 @@ public class GroceryPage extends BasePage {
     private GroceryListContext groceryListContext;
 
     @FindBy(xpath = "//app-root//app-departments")
-    private GroceryListContext departmentsContext;
+    private DepartmentsContext departmentsContext;
 }

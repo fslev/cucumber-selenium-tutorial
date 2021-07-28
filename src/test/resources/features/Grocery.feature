@@ -3,6 +3,25 @@
 @groceryList
 Feature: Grocery List feature
 
+  Scenario: Add grocery item
+    * Go to grocery list tab
+    * Check grocery list size=6
+    * var itemName="Custom grocery item1"
+    * Add grocery item with name=#[itemName]
+    * Check grocery list size=7
+    * Check grocery list contains item with name=#[itemName]
+
+  Scenario: Remove grocery item
+    * Go to grocery list tab
+    * Check grocery list size=6
+    * var itemName1="Baking item1"
+    * var itemName2="Baking item5"
+    * Remove grocery item with name=#[itemName1]
+    * Remove grocery item with name=#[itemName2]
+    * Check grocery list size=4
+    * Check grocery list does not contain item with name=#[itemName1]
+    * Check grocery list does not contain item with name=#[itemName2]
+
   Scenario: Add and remove grocery item
     * Go to grocery list tab
     * Check grocery list size=6

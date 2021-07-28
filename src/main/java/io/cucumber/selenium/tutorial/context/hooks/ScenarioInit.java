@@ -54,8 +54,8 @@ public class ScenarioInit extends BaseScenario {
         } else {
             scenarioUtils.log("Web driver already initialised for current thread context. Refresh address");
         }
-        driver.get(Config.GROCERY_WEBSITE_ADDRESS);
         driver.manage().timeouts().implicitlyWait(IMPLICIT_WAIT);
+        driver.get(Config.GROCERY_WEBSITE_ADDRESS);
     }
 
     private static WebDriver getFirefoxWebDriver() throws MalformedURLException {
