@@ -5,6 +5,7 @@ import io.cucumber.java.en.When;
 import io.cucumber.selenium.tutorial.context.BaseScenario;
 import io.cucumber.selenium.tutorial.context.services.GroceryListContext;
 import io.cucumber.selenium.tutorial.context.services.GroceryPage;
+import io.jtest.utils.exceptions.PollingTimeoutException;
 import io.jtest.utils.polling.Polling;
 
 import javax.inject.Inject;
@@ -50,7 +51,7 @@ public class GroceryListSteps extends BaseScenario {
     }
 
     @When("Check grocery list does not contain item with name={}")
-    public void checkGroceryListItemDoesNotExist(String name) {
+    public void checkGroceryListItemDoesNotExist(String name) throws PollingTimeoutException {
 //        groceryPage.getGroceryListContext().checkItemDoesNotExist(name);
         assertFalse("Item still exists",
                 new Polling<Boolean>().duration(Duration.ofSeconds(8), 500L)
