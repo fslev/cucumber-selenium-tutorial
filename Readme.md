@@ -1,5 +1,5 @@
 # Cucumber Selenium tutorial
-How to test a website using Cucumber and Selenium
+How to test a website user interface using Cucumber and Selenium
 
 ## Dependencies used
 - [**selenium-jutils**](https://github.com/fslev/selenium-jutils)
