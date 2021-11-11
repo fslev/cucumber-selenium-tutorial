@@ -32,6 +32,7 @@
         <surefire.version>2.22.2</surefire.version>
         <tags>@all</tags>
         <cleanup>true</cleanup>
+        <concurrent>false</concurrent>
         <threads>4</threads>
     </properties>
 
