@@ -9,7 +9,7 @@
     <version>1.0-SNAPSHOT</version>
 
     <name>Cucumber Selenium Tutorial</name>
-    <description>How to test a website with Cucumber and Selenium</description>
+    <description>How to test a website UI with Cucumber and Selenium</description>
     <url>https://github.com/fslev/cucumber-selenium-tutorial</url>
     <developers>
         <developer>
@@ -21,16 +21,18 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <cucumber.version>6.10.4</cucumber.version>
-        <cucumber.jutils.version>6.74</cucumber.jutils.version>
+        <cucumber.version>7.0.0</cucumber.version>
+        <cucumber.jutils.version>7.1</cucumber.jutils.version>
         <guice.version>5.0.1</guice.version>
-        <selenium.java.version>4.0.0-rc-1</selenium.java.version>
-        <selenium.jutils.version>1.6</selenium.jutils.version>
-        <lombok.version>1.18.20</lombok.version>
+        <selenium.java.version>4.0.0</selenium.java.version>
+        <selenium.jutils.version>1.7</selenium.jutils.version>
+        <lombok.version>1.18.22</lombok.version>
+        <junit.jupiter.version>5.8.1</junit.jupiter.version>
+        <junit.platform.version>1.8.1</junit.platform.version>
         <surefire.version>2.22.2</surefire.version>
         <tags>@all</tags>
         <cleanup>true</cleanup>
-        <testng.config.file>serial-testng.xml</testng.config.file>
+        <threads>4</threads>
     </properties>
 
     <dependencies>
@@ -75,9 +77,21 @@
         <!--Test dependencies-->
         <dependency>
             <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-testng</artifactId>
-            <scope>test</scope>
+            <artifactId>cucumber-junit-platform-engine</artifactId>
             <version>${cucumber.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>${junit.jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-suite</artifactId>
+            <version>${junit.platform.version}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
@@ -95,18 +109,6 @@
             <id>prod</id>
             <properties>
                 <env>prod</env>
-            </properties>
-        </profile>
-        <profile>
-            <id>concurrent</id>
-            <activation>
-                <property>
-                    <name>concurrent</name>
-                    <value>true</value>
-                </property>
-            </activation>
-            <properties>
-                <testng.config.file>parallel-testng.xml</testng.config.file>
             </properties>
         </profile>
         <profile>
@@ -216,31 +218,26 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${surefire.version}</version>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.apache.maven.surefire</groupId>
-                        <artifactId>surefire-testng</artifactId>
-                        <version>${surefire.version}</version>
-                    </dependency>
-                </dependencies>
                 <executions>
                     <execution>
                         <phase>test</phase>
                     </execution>
                 </executions>
                 <configuration>
+                    <properties>
+                        <!--suppress UnresolvedMavenProperty -->
+                        <configurationParameters>
+                            cucumber.filter.tags=not @Ignore and not @ignore and ${tags}
+                            cucumber.execution.parallel.enabled=${concurrent}
+                            cucumber.execution.parallel.config.fixed.parallelism=${threads}
+                        </configurationParameters>
+                    </properties>
+                    <forkCount>0</forkCount>
                     <printSummary>false</printSummary>
                     <testFailureIgnore>true</testFailureIgnore>
                     <systemPropertyVariables>
-                        <!--suppress UnresolvedMavenProperty -->
-                        <cucumber.filter.tags>not @Ignore and not @ignore and ${tags}</cucumber.filter.tags>
-                        <!--suppress UnresolvedMavenProperty -->
                         <cleanup>${cleanup}</cleanup>
-                        <testng.dtd.https>false</testng.dtd.https>
                     </systemPropertyVariables>
-                    <suiteXmlFiles>
-                        <suiteXmlFile>src/test/resources/${testng.config.file}</suiteXmlFile>
-                    </suiteXmlFiles>
                 </configuration>
             </plugin>
         </plugins>

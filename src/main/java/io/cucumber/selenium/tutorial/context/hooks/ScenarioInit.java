@@ -35,7 +35,7 @@ public class ScenarioInit extends BaseScenario {
     @Before(order = 1)
     public void initScenarioPropsWithConfigProperties() {
         try {
-            scenarioProps.putAll((Map) Config.PROPERTIES);
+            scenarioVars.putAll((Map) Config.PROPERTIES);
         } catch (Throwable t) {
             scenarioUtils.log("Cannot initialise scenario properties from config properties");
             throw t;
