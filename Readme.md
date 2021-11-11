@@ -12,9 +12,9 @@ Start Selenium Grid via _docker-compose_ from _src/test/resources/selenium_:
 ```
 docker-compose -f selenium-grid.yml up
 ```
-Run tests with Maven:  
+Run tests with Maven and generate reports:  
 ```
-mvn clean verify -Plocal,html-report -Dtags=@ui -Dconcurrent=true -Dbrowser.type=chrome
+mvn clean verify -Plocal,html-report -Dtags=@ui -Dconcurrent=true -Dbrowser.type=chrome -Dthreads=4
 ```
 
 ## Application 
