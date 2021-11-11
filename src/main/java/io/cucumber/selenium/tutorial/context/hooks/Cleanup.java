@@ -2,14 +2,18 @@ package io.cucumber.selenium.tutorial.context.hooks;
 
 import io.cucumber.guice.ScenarioScoped;
 import io.cucumber.java.After;
+import io.cucumber.java.AfterAll;
 import io.cucumber.java.AfterStep;
 import io.cucumber.selenium.tutorial.context.BaseScenario;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.logging.LogEntries;
 import org.openqa.selenium.logging.LogType;
 
 import java.util.Date;
+
+import static io.cucumber.selenium.tutorial.context.hooks.ScenarioInit.WEB_DRIVERS;
 
 @ScenarioScoped
 public class Cleanup extends BaseScenario {
@@ -29,5 +33,11 @@ public class Cleanup extends BaseScenario {
         } catch (Exception e) {
             scenarioUtils.log(e.getMessage());
         }
+    }
+
+    @AfterAll
+    public static void closeWebDrivers() {
+        LOG.info("Closing {} webDrivers", WEB_DRIVERS.size());
+        WEB_DRIVERS.forEach(WebDriver::quit);
     }
 }
