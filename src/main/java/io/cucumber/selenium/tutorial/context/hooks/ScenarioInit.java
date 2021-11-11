@@ -37,7 +37,7 @@ public class ScenarioInit extends BaseScenario {
         try {
             scenarioVars.putAll((Map) Config.PROPERTIES);
         } catch (Throwable t) {
-            scenarioUtils.log("Cannot initialise scenario properties from config properties");
+            scenarioUtils.log("Cannot initialise scenario variables from config properties");
             throw t;
         }
     }
