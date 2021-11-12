@@ -1,1 +1,1 @@
-io.cucumber.selenium.tutorial.listener.TestProgressListener
+io.cucumber.selenium.tutorial.config.TestProgressListener
