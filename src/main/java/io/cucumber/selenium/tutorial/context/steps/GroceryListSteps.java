@@ -13,7 +13,8 @@ import java.time.Duration;
 import java.util.List;
 import java.util.Optional;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
+
 
 @ScenarioScoped
 public class GroceryListSteps extends BaseScenario {
@@ -53,9 +54,8 @@ public class GroceryListSteps extends BaseScenario {
     @When("Check grocery list does not contain item with name={}")
     public void checkGroceryListItemDoesNotExist(String name) throws PollingTimeoutException {
 //        groceryPage.getGroceryListContext().checkItemDoesNotExist(name);
-        assertFalse("Item still exists",
-                new Polling<Boolean>().duration(Duration.ofSeconds(8), 500L)
-                        .supplier(() -> groceryPage.getGroceryListContext().getGroceryItemList().stream()
-                                .anyMatch(item -> item.getName().getText().equals(name))).until(res -> !res).get());
+        assertFalse(new Polling<Boolean>().duration(Duration.ofSeconds(8), 500L)
+                .supplier(() -> groceryPage.getGroceryListContext().getGroceryItemList().stream()
+                        .anyMatch(item -> item.getName().getText().equals(name))).until(res -> !res).get(), "Item still exists");
     }
 }

@@ -22,14 +22,13 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <cucumber.version>7.0.0</cucumber.version>
-        <cucumber.jutils.version>7.1</cucumber.jutils.version>
+        <cucumber.jutils.version>7.3</cucumber.jutils.version>
         <guice.version>5.0.1</guice.version>
         <selenium.java.version>4.0.0</selenium.java.version>
-        <selenium.jutils.version>1.8</selenium.jutils.version>
+        <selenium.jutils.version>1.9</selenium.jutils.version>
         <lombok.version>1.18.22</lombok.version>
-        <junit.jupiter.version>5.8.1</junit.jupiter.version>
         <junit.platform.version>1.8.1</junit.platform.version>
-        <surefire.version>2.22.2</surefire.version>
+        <surefire.version>3.0.0-M5</surefire.version>
         <tags>@all</tags>
         <cleanup>true</cleanup>
         <concurrent>false</concurrent>
@@ -80,12 +79,6 @@
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-junit-platform-engine</artifactId>
             <version>${cucumber.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>${junit.jupiter.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -233,7 +226,7 @@
                         </configurationParameters>
                     </properties>
                     <forkCount>0</forkCount>
-                    <printSummary>false</printSummary>
+                    <printSummary>true</printSummary>
                     <testFailureIgnore>true</testFailureIgnore>
                     <systemPropertyVariables>
                         <cleanup>${cleanup}</cleanup>

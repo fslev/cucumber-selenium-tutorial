@@ -9,8 +9,8 @@ import io.cucumber.selenium.tutorial.context.services.GroceryPage;
 import javax.inject.Inject;
 import java.util.Optional;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @ScenarioScoped
 public class DepartmentSteps extends BaseScenario {
