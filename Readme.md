@@ -3,7 +3,7 @@ How to test a website user interface using Cucumber and Selenium
 
 ## Dependencies used
 - [**selenium-jutils**](https://github.com/fslev/selenium-jutils)
-- [**cucumber-jutils**](https://github.com/fslev/cucumber-utils)
+- [**cucumber-jutils**](https://github.com/fslev/cucumber-jutils)
 - Selenium and Cucumber for java
 - Lombok
 
