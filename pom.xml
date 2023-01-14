@@ -21,14 +21,14 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <cucumber.version>7.9.0</cucumber.version>
-        <cucumber.jutils.version>9.6</cucumber.jutils.version>
+        <cucumber.version>7.11.0</cucumber.version>
+        <cucumber.jutils.version>9.10</cucumber.jutils.version>
         <guice.version>5.1.0</guice.version>
         <selenium.java.version>4.5.0</selenium.java.version>
         <selenium.jutils.version>1.22</selenium.jutils.version>
         <lombok.version>1.18.24</lombok.version>
-        <junit.platform.version>1.9.1</junit.platform.version>
-        <surefire.version>3.0.0-M7</surefire.version>
+        <junit.platform.version>1.9.2</junit.platform.version>
+        <surefire.version>3.0.0-M8</surefire.version>
         <tags>@all</tags>
         <cleanup>true</cleanup>
         <concurrent>false</concurrent>
@@ -229,6 +229,8 @@
                         <configurationParameters>
                             cucumber.filter.tags=not @Ignore and not @ignore and ${tags}
                             cucumber.execution.parallel.enabled=${concurrent}
+                            cucumber.execution.parallel.config.fixed.parallelism=${threads}
+                            cucumber.execution.parallel.config.fixed.max-pool-size=${threads}
                         </configurationParameters>
                     </properties>
                     <forkCount>0</forkCount>
