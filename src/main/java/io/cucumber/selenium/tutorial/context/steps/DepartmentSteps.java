@@ -1,12 +1,12 @@
 package io.cucumber.selenium.tutorial.context.steps;
 
+import com.google.inject.Inject;
 import io.cucumber.guice.ScenarioScoped;
 import io.cucumber.java.en.When;
 import io.cucumber.selenium.tutorial.context.BaseScenario;
 import io.cucumber.selenium.tutorial.context.services.DepartmentsContext;
 import io.cucumber.selenium.tutorial.context.services.GroceryPage;
 
-import javax.inject.Inject;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

@@ -1,5 +1,6 @@
 package io.cucumber.selenium.tutorial.context.steps;
 
+import com.google.inject.Inject;
 import io.cucumber.guice.ScenarioScoped;
 import io.cucumber.java.en.When;
 import io.cucumber.selenium.tutorial.context.BaseScenario;
@@ -8,7 +9,6 @@ import io.cucumber.selenium.tutorial.context.services.GroceryPage;
 import io.jtest.utils.exceptions.PollingTimeoutException;
 import io.jtest.utils.polling.Polling;
 
-import javax.inject.Inject;
 import java.time.Duration;
 import java.util.List;
 import java.util.Optional;
