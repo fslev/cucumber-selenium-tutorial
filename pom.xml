@@ -21,14 +21,14 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <cucumber.version>7.11.2</cucumber.version>
-        <cucumber.jutils.version>9.11</cucumber.jutils.version>
-        <guice.version>5.1.0</guice.version>
+        <cucumber.version>7.12.1</cucumber.version>
+        <cucumber.jutils.version>9.12</cucumber.jutils.version>
+        <guice.version>7.0.0</guice.version>
         <selenium.java.version>4.5.0</selenium.java.version>
         <selenium.jutils.version>1.24</selenium.jutils.version>
         <lombok.version>1.18.26</lombok.version>
         <junit.platform.version>1.9.3</junit.platform.version>
-        <surefire.version>3.0.0</surefire.version>
+        <surefire.version>3.1.0</surefire.version>
         <tags>@all</tags>
         <cleanup>true</cleanup>
         <concurrent>false</concurrent>
@@ -78,7 +78,7 @@
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>31.1-jre</version>
+            <version>32.0.0-jre</version>
         </dependency>
         <!--Test dependencies-->
         <dependency>
